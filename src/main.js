@@ -1,11 +1,11 @@
 import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
-import { ReactDom } from 'react-dom';
+import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from './component/app/app';
-import categoriesReducer from './reducer/main';
+import categoriesReducer from './reducer/category';
 import './styles/main.scss';
 
 const middleware = {};
