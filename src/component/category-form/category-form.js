@@ -38,7 +38,15 @@ class CategoryForm extends React.Component {
           value={this.state.title}
           onChange={this.handleChange}
         />
-
+        <br/>
+        <input
+          type='number'
+          name='budget'
+          placeholder='Budget(dollars)'
+          value={this.state.budget}
+          onChange={this.handleChange}
+        />
+        <br/>
         <button type="submit">{buttonText} Category</button>
       </form>
     );

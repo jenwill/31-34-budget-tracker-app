@@ -9,8 +9,7 @@ export default class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <h1>Jennifer&#39;s Budget Tracker</h1>
-              <p><em>$$$$$$$$$$</em></p>
+              <h1>Budget Tracker</h1>
             </header>
             <Route
               exact

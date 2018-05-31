@@ -1,8 +1,11 @@
-const create = ({ title }) => ({
+import uuid from 'uuid';
+
+const create = ({ title, budget }) => ({
   type: 'CATEGORY_CREATE',
   payload: {
     title,
-    id: Math.random(),
+    budget,
+    id: uuid(),
     createdOn: new Date(),
   },
 });
