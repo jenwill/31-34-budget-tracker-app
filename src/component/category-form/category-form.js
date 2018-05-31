@@ -5,6 +5,7 @@ import './category-form.scss';
 
 const defaultState = {
   title: '',
+  budget: '',
 };
 
 class CategoryForm extends React.Component {
