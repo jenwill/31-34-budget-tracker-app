@@ -46,10 +46,9 @@ class CategoryForm extends React.Component {
     const buttonText = this.props.category ? 'Update' : 'Create';
 
     return (
-      <div>
+      <div className='category-block'>
         <button onClick={this.handleShowModal}>Create a Category</button>
       <Modal show={this.state.editing} handleClose={this.handleHideModal}>
-        <h3>Editing This Category</h3>
       <form onSubmit={this.handleSubmit}
       className='category-form'>
         <input
