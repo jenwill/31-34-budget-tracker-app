@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/utils';
+import Modal from '../modal/modal';
 import './category-form.scss';
 
 const defaultState = {
   title: '',
   budget: '',
+  editing: false,
 };
 
 class CategoryForm extends React.Component {
@@ -18,6 +20,9 @@ class CategoryForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({
+      editing: false,
+    });
     this.props.onComplete(this.state);
   }
 
@@ -27,9 +32,24 @@ class CategoryForm extends React.Component {
       [name]: value,
     });
   }
+  handleShowModal() {
+    this.setState({
+      editing: true,
+    });
+  }
+  handleHideModal() {
+    this.setState({
+      editing: false,
+    });
+  }
   render() {
     const buttonText = this.props.category ? 'Update' : 'Create';
+
     return (
+      <div>
+        <button onClick={this.handleShowModal}>Create a Category</button>
+      <Modal show={this.state.editing} handleClose={this.handleHideModal}>
+        <h3>Editing This Category</h3>
       <form onSubmit={this.handleSubmit}
       className='category-form'>
         <input
@@ -50,6 +70,8 @@ class CategoryForm extends React.Component {
         <br/>
         <button type="submit">{buttonText} Category</button>
       </form>
+      </Modal>
+      </div>
     );
   }
 }
