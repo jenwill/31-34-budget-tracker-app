@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/utils';
+import Modal from '../modal/modal';
 
 const defaultState = {
   name: '',
   price: '',
+  editing: false,
 };
 
 class ExpenseForm extends React.Component {
@@ -31,10 +33,23 @@ class ExpenseForm extends React.Component {
       [name]: value,
     });
   }
+  handleShowModal() {
+    this.setState({
+      editing: true,
+    });
+  }
+  handleHideModal() {
+    this.setState({
+      editing: false,
+    });
+  }
   render() {
     const { expense } = this.props;
     const buttonText = expense ? 'Update' : 'Create';
     return (
+      <div>
+        <button onClick={this.handleShowModal}>Create an Expense</button>
+      <Modal show={this.state.editing} handleClose={this.handleHideModal}>
       <form onSubmit={this.handleSubmit}
             className='expense-form'>
         <input
@@ -55,6 +70,8 @@ class ExpenseForm extends React.Component {
         <br/>
         <button type="submit">{buttonText} Expense</button>
       </form>
+      </Modal>
+      </div>
     );
   }
 }
